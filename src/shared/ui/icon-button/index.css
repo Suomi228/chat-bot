@@ -1,0 +1,30 @@
+/* index.css */
+.icon-button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #313e62;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.icon-button.blue {
+  background-color: #1c64f2;
+}
+
+.icon-button.transparent {
+  background-color: transparent;
+}
+
+.icon-button:hover {
+  opacity: 0.8;
+}
+
+.icon-button__image {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
