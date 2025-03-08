@@ -6,9 +6,7 @@ export default function DashboardPage() {
       <aside className="sidebar">
         <Sidebar />
       </aside>
-      <main className="content">
-        Контент
-        </main>
+      <main className="content">Контент</main>
     </div>
   );
 }
