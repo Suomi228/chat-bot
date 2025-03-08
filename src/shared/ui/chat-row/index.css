@@ -1,0 +1,52 @@
+.chat-row {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: opacity 0.2s ease;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.chat-row:hover,
+.chat-row.active {
+  opacity: 1;
+}
+
+.chat-row:hover:not(.active) {
+  opacity: 0.7;
+}
+
+.chat-row__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.chat-row__chat,
+.chat-row__trash {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.chat-row__chat:hover,
+.chat-row__trash:hover {
+  opacity: 0.8;
+}
+
+.chat-row__chat img,
+.chat-row__trash img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.chat-row__name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}

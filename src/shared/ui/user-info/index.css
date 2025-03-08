@@ -1,7 +1,7 @@
 .user-info {
   width: 100%;
-  height: 72px;
   display: flex;
+  height: 72px;
   border-radius: 18px;
   border: 1px solid #313e62;
 }
