@@ -63,9 +63,22 @@
 }
 
 .auth-form__text-input {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.auth-form__error {
+  position: absolute;
+
+  bottom: -12px;
+
+  left: 0;
+
+  color: red;
+
+  font-size: 10px;
 }
 
 .cross {

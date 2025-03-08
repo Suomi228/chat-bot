@@ -1,9 +1,8 @@
+import "./index.css";
 
-import './index.css'
-export default function Button() {
-  return (
-    <button className="button--blue">
-      Войти
-    </button>
-  )
+type ButtonProps = {
+  type: 'submit';
+};
+export default function Button({ type }: ButtonProps) {
+  return <button type={type} className="button--blue">Войти</button>;
 }

@@ -12,10 +12,32 @@
   box-sizing: border-box;
 }
 
-.input::placeholder {
-  color: #616D8D;
+.input--error {
+  border-color: #ff4d4f;
+  box-shadow: 0 0 0.6rem rgba(255, 77, 79, 0.3);
+  animation: shake 0.4s ease-in-out;
 }
 
-.input:focus {
-  border-color: #1C64F2;
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(6px);
+  }
+  50% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
 }
+
+.input::placeholder {
+  color: #616d8d;
+}
+
+/* .input:focus {
+  border-color: #1c64f2;
+} */

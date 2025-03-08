@@ -3,13 +3,17 @@ import './index.css'
 type InputProps = {
   type: 'email' | 'password';
   placeholder: string;
+  hasError?: boolean;
+  triggerKey?: number;
 }
-export default function Input({type, placeholder}: InputProps) {
+export default function Input({type, placeholder, hasError, triggerKey, ...rest}: InputProps) {
   return (
     <input
       type={type}
       placeholder={placeholder}
-      className="input"
+      {...rest}
+      className={`input ${hasError ? 'input--error' : ''}`}
+      key={triggerKey} 
     />
   )
 }
