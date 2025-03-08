@@ -1,0 +1,17 @@
+.dashboard-page {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
+
+.sidebar {
+  display: flex;
+  width: 25%;
+  background-color: #f0f0f0;
+}
+
+.content {
+  display: flex;
+  width: 75%;
+  background-color: #ffffff;
+}
