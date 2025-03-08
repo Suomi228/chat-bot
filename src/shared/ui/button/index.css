@@ -1,0 +1,19 @@
+.button--blue {
+  width: 100%;
+  background-color: #1c64f2;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  height: 52px;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  border-top: 1.5px solid #6898f4;
+}
+
+.button--blue:active {
+  color: #616d8d;
+  background-color: rgb(10, 60, 130);
+  border-top-color: rgb(5, 40, 100);
+}
