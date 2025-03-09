@@ -17,9 +17,11 @@
   gap: 8px;
   font-size: 15px;
   font-weight: 500;
+  font-family: inherit;
   transition: transform 0.1s ease, all 0.2s ease;
   justify-content: space-between;
 }
+
 .picker-button:active {
   transform: translateY(2px);
 }
@@ -87,8 +89,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-weight: 500;
-  font-size: 16px;
 }
 
 .button-content {
@@ -98,6 +98,8 @@
   gap: 8px;
   min-width: 0;
   overflow: hidden;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .arrow {
