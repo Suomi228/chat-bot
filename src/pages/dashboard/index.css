@@ -11,11 +11,61 @@
   display: flex;
   flex-direction: column;
   width: 324px;
+  flex-shrink: 1;
+  transition: transform 0.3s ease;
   /* background-color: #f0f0f0; */
 }
-
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
 .content {
   flex: 1;
   min-width: 0;
   /* background-color: #ffffff; */
+}
+
+.burger-button {
+  display: none;
+}
+
+@media (max-width: 1020px) {
+  .dashboard-page {
+    padding: 0;
+    gap: 0;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    transform: translateX(-100%);
+    border-radius: 0;
+    width: 100%;
+    max-width: 324px;
+  }
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  .burger-button {
+    display: flex;
+    position: absolute;
+    top: 10%;
+    left: 89.5%;
+    /* display: block; */
+  }
+  .sidebar-overlay {
+    display: block;
+  }
+  .content {
+    border-radius: 0;
+    height: 100vh;
+  }
 }
