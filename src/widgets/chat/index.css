@@ -24,6 +24,9 @@
   align-items: start;
 }
 .chat__bottom-part{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     padding-bottom: 20px;
 }
 @media (max-width: 1200px) {

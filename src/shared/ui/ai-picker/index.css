@@ -1,0 +1,110 @@
+.ai-picker {
+  position: relative;
+  /* width: 147px; */
+  height: 40px;
+}
+
+.picker-button {
+  width: fit-content;
+  padding: 10px 16px;
+  background: #121825bf;
+  color: #ffffff;
+  border: 1px solid #313e62;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: transform 0.1s ease, all 0.2s ease;
+  justify-content: space-between;
+}
+.picker-button:active {
+  transform: translateY(2px);
+}
+
+.models-dropdown {
+  position: absolute;
+  height: 156;
+  width: 272px;
+  bottom: 100%;
+  margin-bottom: 8px;
+  padding: 6px;
+  color: #ffffff;
+  background: #121825bf;
+  border: 1px solid #313e62;
+  border-radius: 10px;
+  z-index: 100;
+  overflow: hidden;
+  transform-origin: bottom center;
+  animation: slideUp 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.models-dropdown {
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-height: 600px) {
+  .models-dropdown {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+
+.model-item {
+  padding: 12px;
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.model-item:hover {
+  background: #222b44;
+}
+
+.model-icon {
+  font-size: 18px;
+}
+
+.selected-model {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  background: url('data:image/svg+xml,<svg%20width%3D"16"%20height%3D"16"%20viewBox%3D"0%200%2016%2016"%20fill%3D"none"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"><path%20d%3D"M3%206L8%2010L13%206"%20stroke%3D"white"%20stroke-width%3D"2"%20stroke-linecap%3D"round"%20stroke-linejoin%3D"round"%2F><%2Fsvg>')
+    no-repeat center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.picker-button[aria-expanded="true"] .arrow {
+  transform: rotate(180deg);
+}
