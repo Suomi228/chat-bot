@@ -1,0 +1,6 @@
+.chat {
+  width: 100%;
+  background-color: #121825;
+  border-radius: 18px;
+  display: flex;
+}
