@@ -10,10 +10,12 @@
   cursor: pointer;
   border: none;
   border-top: 1.5px solid #6898f4;
+  transition: all 0.2s ease;
 }
 
 .button--blue:active {
   color: #616d8d;
-  background-color: rgb(10, 60, 130);
-  border-top-color: rgb(5, 40, 100);
+  opacity: 0.7;
+  /* background-color: rgb(10, 60, 130);
+  border-top-color: rgb(5, 40, 100); */
 }

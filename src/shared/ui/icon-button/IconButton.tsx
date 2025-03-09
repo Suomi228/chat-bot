@@ -7,6 +7,7 @@ type IconButtonProps = {
   icon: string;
   onClick?: () => void;
   backgroundColor?: "blue" | "transparent";
+  
 };
 
 export default function IconButton({
