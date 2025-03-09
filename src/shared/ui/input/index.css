@@ -10,6 +10,9 @@
   display: flex;
 }
 .input {
+  font-family: inherit; /* Важно для наследования шрифта */
+  font-size: inherit; /* Сброс стандартных стилей */
+  font-weight: inherit;
   width: 100%;
   background-color: #121825;
   border: 1px solid #313e62;

@@ -1,0 +1,90 @@
+.language-picker {
+  position: relative;
+  width: fit-content;
+}
+
+.language-code {
+  font-weight: 600;
+  font-size: 16px;
+}
+.language-code--small {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.languages-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  padding: 8px;
+  background: #121825bf;
+  border: 1px solid #313e62;
+  border-radius: 10px;
+  z-index: 100;
+  animation: slideDown 0.2s ease;
+  transform-origin: top center;
+}
+
+.language-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.language-item:hover {
+  background: #222b44;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -10px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.lang-picker-button {
+  width: 100%;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.lang-picker-button:active {
+  transform: translateY(2px);
+}
+
+.lang-button-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  width: 100%;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  background: url('data:image/svg+xml,<svg%20width%3D"16"%20height%3D"16"%20viewBox%3D"0%200%2016%2016"%20fill%3D"none"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"><path%20d%3D"M3%206L8%2010L13%206"%20stroke%3D"white"%20stroke-width%3D"2"%20stroke-linecap%3D"round"%20stroke-linejoin%3D"round"%2F><%2Fsvg>')
+    no-repeat center;
+  transition: transform 0.2s ease;
+}
+
+.lang-picker-button[aria-expanded="true"] .arrow {
+  transform: rotate(180deg);
+}

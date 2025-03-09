@@ -7,6 +7,7 @@ import search from "../../assets/search-simple.svg";
 import addChat from "../../assets/add-chat.svg";
 import ChatRow from "../../shared/ui/chat-row/ChatRow";
 import { useState } from "react";
+import LanguagePicker from "../../shared/ui/lang-picker/LanguagePicker";
 interface ChatItem {
   id: string;
   name: string;
@@ -27,6 +28,7 @@ export default function Sidebar() {
       <div className="sidebar__inner">
         <div className="sidebar__up-content">
           <img src={logo} alt="logo" />
+          <LanguagePicker />
         </div>
         <div className="sidebar__wrapper">
           <div className="sidebar__chat">

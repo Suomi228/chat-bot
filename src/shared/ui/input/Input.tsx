@@ -21,7 +21,7 @@ export default function Input({
   children,
   ...rest
 }: InputProps) {
-  const inputStyle = {
+  const inputStyle: React.CSSProperties = {
     fontSize: `${fontSize}px`,
     fontWeight: fontWeight,
     height: `${height}px`,

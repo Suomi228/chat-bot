@@ -8,8 +8,8 @@ export default function UserInfo() {
         <div className="user-info__left">
           <img src={avatar} alt="avatar" />
           <div className="user-info__details">
-            <span className="user__info__name">Василий</span>
-            <span className="user__info__token">9 012 TKN</span>
+            <span className="user-info__name">Василий</span>
+            <span className="user-info__token">9 012 TKN</span>
           </div>
         </div>
         <button

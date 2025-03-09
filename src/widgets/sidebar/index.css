@@ -46,3 +46,8 @@
   padding-top: 8px;
   border-top: 1px solid #313e62;
 }
+
+.sidebar__up-content{
+  display: flex;
+  justify-content: space-between;
+}
