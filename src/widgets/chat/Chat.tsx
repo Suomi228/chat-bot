@@ -9,7 +9,7 @@ import Message from "../../shared/ui/message/Message";
 export default function Chat() {
   const [messages, setMessages] = useState([
     {
-      text: "Привет! Чем могу помочь?",
+      text: "Привет! Чем могу помочь? Привет! Чем могу помочь?Привет! Чем могу помочь?Привет! Чем могу помочь?Привет! Чем могу помочь?",
       isBot: true,
       timestamp: "10:00",
     },
