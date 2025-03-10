@@ -1,6 +1,8 @@
 import "./index.css";
 import userAvatar from "../../../assets/chat-avatar.svg";
 import botAvatar from "../../../assets/chat-avatar.svg";
+import copyIcon from "../../../assets/copy.svg";
+import { useState } from "react";
 interface MessageProps {
   text: string;
   isBot: boolean;
@@ -8,6 +10,16 @@ interface MessageProps {
 }
 
 export default function Message({ text, isBot, timestamp }: MessageProps) {
+  const [isCopied, setIsCopied] = useState(false);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 1000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
   return (
     <div className={`message ${isBot ? "bot" : "user"}`}>
       <img
@@ -16,6 +28,10 @@ export default function Message({ text, isBot, timestamp }: MessageProps) {
         className="message__avatar"
       />
       <div className="message__content">
+        <div className="copy-button-wrapper">
+          <img src={isCopied ? "" : copyIcon} onClick={handleCopy} />
+          {isCopied && <span className="copy-checkmark">✓</span>}
+        </div>
         {isBot ? (
           <>
             <div className="message__text">{text}</div>
