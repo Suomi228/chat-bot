@@ -1,8 +1,16 @@
 import "./index.css";
 
 type ButtonProps = {
-  type: 'submit';
+  type: "submit";
+  children?: React.ReactNode;
 };
-export default function Button({ type }: ButtonProps) {
-  return <button type={type} className="button--blue">Войти</button>;
+export default function Button({ type, children }: ButtonProps) {
+  return (
+    <button type={type} className="button--blue">
+      <div className="button-content">
+        <span>Войти</span>
+        {children}
+      </div>
+    </button>
+  );
 }

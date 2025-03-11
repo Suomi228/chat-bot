@@ -1,7 +1,16 @@
 import "./index.css";
 import avatar from "../../../assets/default-avatar.svg";
+import { logout } from "../../api/slices/auth";
+import { useAppDispatch } from "../../api/hooks";
+import { useNavigate } from "react-router-dom";
 
 export default function UserInfo() {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const onClickLogout = () => {
+    dispatch(logout());
+    navigate("/");
+  };
   return (
     <div className="user-info">
       <div className="user-info__inner">
@@ -16,6 +25,7 @@ export default function UserInfo() {
           className="user-info__logout"
           aria-label="Выйти из приложения"
           title="Выйти"
+          onClick={onClickLogout}
         >
           <svg
             className="logout-icon"

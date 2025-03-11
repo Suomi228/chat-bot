@@ -11,11 +11,17 @@
   border: none;
   border-top: 1.5px solid #6898f4;
   transition: all 0.2s ease;
+  gap: 20px;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
 }
 
 .button--blue:active {
   color: #616d8d;
   opacity: 0.7;
-  /* background-color: rgb(10, 60, 130);
-  border-top-color: rgb(5, 40, 100); */
 }
