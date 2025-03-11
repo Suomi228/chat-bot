@@ -2,23 +2,18 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axiosConfig from "../axios.config.ts";
 import { STATUS } from "../../consts/consts.ts";
 import { RootState } from "../store.ts";
-type User = {
-  email: string;
-  password: string;
-};
+import { AuthState } from "../../types/interface.ts";
+import { User } from "../../types/type.ts";
 
-export const signIn = createAsyncThunk("/auth/signin", async (params: User) => {
-  const response = await axiosConfig.post("/auth/signin", {
+export const signIn = createAsyncThunk("/auth/signup", async (params: User) => {
+  const response = await axiosConfig.post("/auth/signup", {
     email: params.email,
     password: params.password,
   });
   return response.data;
 });
 
-interface AuthState {
-  data: null | object;
-  status: string;
-}
+
 const initialState: AuthState = {
   data: null,
   status: STATUS.PENDING,

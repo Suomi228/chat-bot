@@ -7,8 +7,10 @@ const instance = axios.create({
 
 instance.interceptors.request.use((config) => {
   config.headers.Authorization = `Bearer ${API_TOKEN}`;
+  config.headers["Content-Type"] = "application/json";
   return config;
 });
+
 
 instance.interceptors.response.use(
   (config) => {

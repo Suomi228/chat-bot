@@ -12,6 +12,14 @@
   justify-content: space-between;
 }
 
+.animate-spin {
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .sidebar__inner {
   padding: 20px;
   color: #fff;
@@ -39,15 +47,33 @@
 
 .sidebar__chat-list {
   display: flex;
-  /* height: 100%; */
   flex-direction: column;
   width: 100%;
   gap: 4px;
   padding-top: 8px;
   border-top: 1px solid #313e62;
+  max-height: calc(100vh - 270px);
+  overflow-y: auto;
 }
 
-.sidebar__up-content{
+.sidebar__chat-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar__chat-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.sidebar__chat-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar__chat-list--spin {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar__up-content {
   display: flex;
   justify-content: space-between;
 }

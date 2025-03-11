@@ -1,14 +1,17 @@
 import "./index.css";
 import chat from "../../../assets/sidebar-chat.svg";
 import trash from "../../../assets/trash.svg";
+
+
 type ChatRowProps = {
   id: string;
   name: string;
   active: boolean;
   onSelect: (id: string) => void;
+  onDeleteClick?: () => void;
 };
 
-export default function ChatRow({ id, name, active, onSelect }: ChatRowProps) {
+export default function ChatRow({ id, name, active, onSelect, onDeleteClick }: ChatRowProps) {
   const handleRowClick = (e: React.MouseEvent) => {
     if ((e.target as HTMLElement).closest(".chat-row__trash")) return;
     onSelect(id);
@@ -26,7 +29,7 @@ export default function ChatRow({ id, name, active, onSelect }: ChatRowProps) {
         <span className="chat-row__name">{name}</span>
       </div>
       <button className="chat-row__trash">
-        <img src={trash} alt="Удалить" />
+        <img src={trash} alt="Удалить" onClick={onDeleteClick}/>
       </button>
     </div>
   );

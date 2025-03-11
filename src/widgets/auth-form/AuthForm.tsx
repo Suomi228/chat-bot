@@ -9,10 +9,7 @@ import { Navigate } from "react-router-dom";
 import { API_TOKEN } from "../../shared/consts/consts.ts";
 import { useState } from "react";
 import spin from "../../assets/loader.svg";
-type User = {
-  email: string;
-  password: string;
-};
+import { User } from "../../shared/types/type.ts";
 
 export default function AuthForm() {
   const {
