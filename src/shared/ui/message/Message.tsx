@@ -8,9 +8,11 @@ interface MessageProps {
   text: string;
   isBot: boolean;
   timestamp: string;
+  model_id?: string;
+  model_name?: string;
 }
 
-export default function Message({ text, isBot, timestamp }: MessageProps) {
+export default function Message({ text, isBot, timestamp, model_id, model_name }: MessageProps) {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -27,7 +29,7 @@ export default function Message({ text, isBot, timestamp }: MessageProps) {
     <div className={`message ${isBot ? "message--bot" : "message--user"}`}>
       {isBot && (
         <div className="message__bot-name">
-          Bot Name <span className="message__bot-badge">gpt-3.5-turbo</span>
+          {model_name} <span className="message__bot-badge">{model_id}</span>
         </div>
       )}
       <div className={`message__body${isBot ? "" : "--user"}`}>

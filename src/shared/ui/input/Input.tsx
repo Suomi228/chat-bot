@@ -9,6 +9,9 @@ type InputProps = {
   fontWeight?: number;
   height?: number;
   children?: React.ReactNode;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 };
 export default function Input({
   type,
@@ -19,6 +22,9 @@ export default function Input({
   height = 54,
   triggerKey,
   children,
+  value,
+  onChange,
+  onKeyPress,
   ...rest
 }: InputProps) {
   const inputStyle: React.CSSProperties = {
@@ -32,6 +38,9 @@ export default function Input({
       <input
         type={type}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        // onKeyPress={onKeyPress}
         {...rest}
         className={`input ${hasError ? "input--error" : ""}`}
         style={inputStyle}

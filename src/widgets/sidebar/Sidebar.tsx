@@ -25,7 +25,7 @@ export default function Sidebar() {
   const dispatch = useAppDispatch();
 
   const chatList = useSelector<RootState, ChatItem[]>(
-    (state) => state.chat.data?.data || []
+    (state) => state.chat.chats.data || []
   );
   const [isLoading, setIsLoading] = useState(false);
   const [selectedChatId, setSelectedChatId] = useState<string>(() => {

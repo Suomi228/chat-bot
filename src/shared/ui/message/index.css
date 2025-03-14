@@ -4,6 +4,12 @@
   flex-direction: column;
   gap: 8px;
 }
+.use--content{
+  flex: 1;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
 
 .message__body {
   display: flex;
@@ -52,7 +58,7 @@
 
 .message--bot {
   align-self: flex-start;
-  width: 100%;
+  max-width: 100%;
 }
 
 .message--bot .message__text--bot {
@@ -98,7 +104,7 @@
   background: #4785ff80;
   color: #ffffff;
   border-radius: 10px 10px 0 10px;
-  padding: 14px 45px 14px 12px;
+  padding: 14px 55px 14px 12px;
 }
 
 .message__time {

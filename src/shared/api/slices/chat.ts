@@ -8,6 +8,30 @@ export const showChatList = createAsyncThunk("/chat/list", async () => {
   return response.data;
 });
 
+export const showMessagesPerChat = createAsyncThunk(
+  "/chat/messages",
+  async (id: string) => {
+    const response = await axiosConfig.get(`/chat/${id}/messages`);
+    return response.data;
+  }
+);
+
+interface MessageParams {
+    chatId: string;
+    message: string;
+}
+
+export const sendMessage = createAsyncThunk(
+  "/message/send  ",
+  async (params: MessageParams) => {
+    const response = await axiosConfig.post("/message/send", {
+      chatId: params.chatId,
+      message: params.message,
+    });
+    return response.data;
+  }
+);
+
 export const createChat = createAsyncThunk("/chat/create", async () => {
   const response = await axiosConfig.post("/chat", {
     name: "New Chat",
@@ -15,14 +39,23 @@ export const createChat = createAsyncThunk("/chat/create", async () => {
   return response.data;
 });
 
-export const deleteChat = createAsyncThunk("chat/delete", async (id: string) => {
-  const response = await axiosConfig.delete(`/chat/${id}`);
-  return response.data;
-});
+export const deleteChat = createAsyncThunk(
+  "chat/delete",
+  async (id: string) => {
+    const response = await axiosConfig.delete(`/chat/${id}`);
+    return response.data;
+  }
+);
 
 const initialState: ChatState = {
-  data: null,
-  status: STATUS.PENDING,
+  chats: {
+    data: [],
+    status: STATUS.PENDING,
+  },
+  messages: {
+    data: [],
+    status: STATUS.PENDING,
+  },
 };
 
 const chatSlice = createSlice({
@@ -37,40 +70,64 @@ const chatSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(showChatList.pending, (state) => {
-        state.data = null;
-        state.status = STATUS.PENDING;
+        state.chats.data = null;
+        state.chats.status = STATUS.PENDING;
       })
       .addCase(showChatList.fulfilled, (state, action) => {
-        state.data = action.payload;
-        state.status = STATUS.FULFILLED;
+        state.chats.data = action.payload.data;
+        state.chats.status = STATUS.FULFILLED;
       })
       .addCase(showChatList.rejected, (state) => {
-        state.data = null;
-        state.status = STATUS.REJECTED;
+        state.chats.data = null;
+        state.chats.status = STATUS.REJECTED;
+      })
+      .addCase(showMessagesPerChat.pending, (state) => {
+        state.messages.data = null;
+        state.messages.status = STATUS.PENDING;
+      })
+      .addCase(showMessagesPerChat.fulfilled, (state, action) => {
+        state.messages.data = action.payload.data;
+        state.messages.status = STATUS.FULFILLED;
+      })
+      .addCase(showMessagesPerChat.rejected, (state) => {
+        state.messages.data = null;
+        state.messages.status = STATUS.REJECTED;
+      })
+      .addCase(sendMessage.pending, (state) => {
+        state.messages.data = null;
+        state.messages.status = STATUS.PENDING;
+      })
+      .addCase(sendMessage.fulfilled, (state, action) => {
+        state.messages.data = action.payload;
+        state.messages.status = STATUS.FULFILLED;
+      })
+      .addCase(sendMessage.rejected, (state) => {
+        state.messages.data = null;
+        state.messages.status = STATUS.REJECTED;
       })
       .addCase(createChat.pending, (state) => {
-        state.data = null;
-        state.status = STATUS.PENDING;
+        state.chats.data = null;
+        state.chats.status = STATUS.PENDING;
       })
       .addCase(createChat.fulfilled, (state, action) => {
-        state.data = action.payload;
-        state.status = STATUS.FULFILLED;
+        state.chats.data = action.payload.data;
+        state.chats.status = STATUS.FULFILLED;
       })
       .addCase(createChat.rejected, (state) => {
-        state.data = null;
-        state.status = STATUS.REJECTED;
+        state.chats.data = null;
+        state.chats.status = STATUS.REJECTED;
       })
       .addCase(deleteChat.pending, (state) => {
-        state.data = null;
-        state.status = STATUS.PENDING;
+        state.chats.data = null;
+        state.chats.status = STATUS.PENDING;
       })
       .addCase(deleteChat.fulfilled, (state, action) => {
-        state.data = action.payload;
-        state.status = STATUS.FULFILLED;
+        state.chats.data = action.payload.data;
+        state.chats.status = STATUS.FULFILLED;
       })
       .addCase(deleteChat.rejected, (state) => {
-        state.data = null;
-        state.status = STATUS.REJECTED;
+        state.chats.data = null;
+        state.chats.status = STATUS.REJECTED;
       });
   },
 });

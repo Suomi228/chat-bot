@@ -3,9 +3,13 @@ export interface AuthState {
   status: string;
 }
 export interface ChatState {
-  data: {
-    data: [];
-    pages: number;
-  } | null;
-  status: string;
+  chats: {
+    data: [] | null;
+    status: string;
+  };
+  messages: {
+    data: [] | null;
+    status: string;
+  };
 }
+
